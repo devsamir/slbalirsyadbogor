@@ -2,13 +2,12 @@ import { Request, Response, NextFunction } from "express";
 import { getManager } from "typeorm";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+import { JWT_SECRET } from "../env";
 
 import catchAsync from "../utils/catchAsync";
 import User from "../models/User";
 import AppError from "../utils/appError";
 
-dotenv.config();
 const login = catchAsync(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { username, password } = req.body;
@@ -26,9 +25,9 @@ const login = catchAsync(
     const cekPass = await bcrypt.compare(password, user.password);
     if (!cekPass)
       return next(new AppError("Username atau Password Salah !", 400));
-    const jwtSecret: any = process.env.JWT_SECRET;
+    const jwtSecret: any = JWT_SECRET;
     const token = jwt.sign(
-      { username, email: user.email, avatar: user.avatar, id: user.id },
+      { username, email: user.email, id: user.id },
       jwtSecret,
       {
         expiresIn: "1d",
@@ -36,19 +35,17 @@ const login = catchAsync(
     );
     res.cookie("jwt", token, { httpOnly: true });
 
-    res
-      .status(200)
-      .json({ username, email: user.email, avatar: user.avatar, id: user.id });
+    res.status(200).json({ username, email: user.email, id: user.id });
   }
 );
-const protect = catchAsync(
-  async (
-    req: Request | any,
-    res: Response,
-    next: NextFunction
-  ): Promise<void> => {
+const protect = async (
+  req: Request | any,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
     const manager = getManager();
-    const jwtSecret: any = process.env.JWT_SECRET;
+    const jwtSecret: any = JWT_SECRET;
     if (!req.cookies.jwt) return res.redirect("/login");
     const token: any = await jwt.verify(req.cookies.jwt, jwtSecret);
     const user: any = await manager.findOne(User, {
@@ -62,18 +59,22 @@ const protect = catchAsync(
     user.password = undefined;
     req.user = user;
     next();
+  } catch (err) {
+    res.clearCookie("jwt");
+    return res.redirect("/login");
   }
-);
-const isLogged = catchAsync(
-  async (
-    req: Request | any,
-    res: Response,
-    next: NextFunction
-  ): Promise<void> => {
+};
+const isLogged = async (
+  req: Request | any,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
     const manager = getManager();
-    const jwtSecret: any = process.env.JWT_SECRET;
+    const jwtSecret: any = JWT_SECRET;
     if (req.cookies.jwt) {
       const token: any = await jwt.verify(req.cookies.jwt, jwtSecret);
+
       const user: any = await manager.findOne(User, {
         where: { id: token.id, active: true },
       });
@@ -82,8 +83,11 @@ const isLogged = catchAsync(
       }
     }
     next();
+  } catch (err) {
+    res.clearCookie("jwt");
+    next();
   }
-);
+};
 const logout = catchAsync(
   async (
     req: Request | any,

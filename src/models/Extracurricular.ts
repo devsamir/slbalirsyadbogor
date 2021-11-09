@@ -7,30 +7,23 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from "typeorm";
-import Teacher from "./Teacher";
+import User from "./User";
 
 @Entity()
 export default class Extracurricular {
   @PrimaryGeneratedColumn("increment")
   id: number;
-  @ManyToOne(() => Teacher, (Teacher) => Teacher.id, { nullable: false })
-  teacher: number;
-  @Column({ nullable: true, default: "default-thumbnail.png" })
+  @ManyToOne(() => User, (User) => User.id, { nullable: false })
+  user: number;
+  @Column({ nullable: true, default: `public/uploads/default-extra.jpg` })
   thumbnail: string;
   @Column()
   @IsDefined({ message: "Nama Extrakulikuler Tidak Boleh Kosong" })
   nameExtracurricular: string;
-  @Column("text")
-  @IsDefined({ message: "Deskripsi Ektrakulikuler Tidak Boleh Kosong !" })
+  @Column("text", { nullable: true, default: "" })
   description: string;
-  @Column("time")
-  extraOpen: string;
-  @Column("time")
-  extraClose: string;
   @CreateDateColumn()
   createdAt: Date;
   @UpdateDateColumn()
   updatedAt: Date;
-  @Column("boolean", { default: true, select: false })
-  active: boolean;
 }

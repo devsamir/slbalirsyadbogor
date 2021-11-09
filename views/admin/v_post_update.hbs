@@ -1,0 +1,43 @@
+<script src="https://cdn.tiny.cloud/1/x7j9ol5u4ptqk8y57iy69zjiozd2xpzszg6ya6sxa0y4jg83/tinymce/5/tinymce.min.js"
+  referrerpolicy="origin"></script>
+<div class="card">
+  <div class="card-header bg-transparent">
+    <h3 class="mb-0">Artikel SLB AL-Irsyad Bogor</h3>
+  </div>
+  <div class="card-body">
+    <a href="/admin/post" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Kembali</a>
+
+    <div class="my-4">
+      <input type="hidden" id="id">
+      <div class="form-group my-4">
+        <label>Judul Artikel <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="title" />
+      </div>
+      <div class="form-group my-4">
+        <label>Isi Artikel <span class="text-danger">*</span></label>
+        <textarea id="body" style="height: 30rem;"></textarea>
+      </div>
+      <div class="form-group my-4">
+        <label>Foto Artikel</label>
+        <input type="file" class="form-control" id="thubmnail" />
+      </div>
+      <div class="form-group my-4">
+        <label>Status Artikel <span class="text-danger">*</span></label>
+        <select class="form-control" id="status">
+          <option value="publish">Publish</option>
+          <option value="draft">Draft</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Jenis Post <span class="text-danger">*</span></label>
+        <select id="jenis" class="form-control">
+          <option value="Artikel">Artikel</option>
+          <option value="Berita">Berita</option>
+        </select>
+      </div>
+      <button class="btn btn-info my-2" id="btnUpdate">Update</button>
+
+    </div>
+  </div>
+</div>
+<script type="module" src="/public/js/method/postUpdate.js"></script>

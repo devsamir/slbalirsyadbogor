@@ -1,15 +1,10 @@
 import { myAxios } from "../utils/url.js";
-const createUser = async (username, password, repassword, email, avatar) => {
-  const formData = new FormData();
-  formData.append("username", username.value);
-  formData.append("password", password.value);
-  formData.append("repassword", repassword.value);
-  formData.append("email", email.value);
-  formData.append("avatar", avatar.files[0]);
-  const { data } = await myAxios.post("/user", formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
+const createUser = async (username, password, repassword, email) => {
+  const { data } = await myAxios.post("/user", {
+    username: username.value,
+    password: password.value,
+    repassword: repassword.value,
+    email: email.value,
   });
   return data;
 };
@@ -19,20 +14,14 @@ const updateUser = async (
   oldPassword,
   password,
   repassword,
-  email,
-  avatar
+  email
 ) => {
-  const formData = new FormData();
-  formData.append("username", username.value);
-  formData.append("oldPassword", oldPassword.value);
-  formData.append("password", password.value);
-  formData.append("repassword", repassword.value);
-  formData.append("email", email.value);
-  formData.append("avatar", avatar.files[0]);
-  const { data } = await myAxios.put(`/user/${id.value}`, formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
+  const { data } = await myAxios.put(`/user/${id.value}`, {
+    username: username.value,
+    oldPassword: oldPassword.value,
+    password: password.value,
+    repassword: repassword.value,
+    email: email.value,
   });
   return data;
 };

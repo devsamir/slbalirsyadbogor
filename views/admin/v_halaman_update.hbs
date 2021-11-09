@@ -1,0 +1,28 @@
+<script src="https://cdn.tiny.cloud/1/x7j9ol5u4ptqk8y57iy69zjiozd2xpzszg6ya6sxa0y4jg83/tinymce/5/tinymce.min.js"
+  referrerpolicy="origin"></script>
+<div class="card">
+  <div class="card-header bg-transparent">
+    <h3 class="mb-0">Update Halaman SLB AL-Irsyad Bogor</h3>
+  </div>
+  <div class="card-body">
+    <a href="/admin/halaman" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Kembali</a>
+     <div class="my-4">
+      <input type="hidden" id="id">
+      <div class="form-group my-4">
+        <label>Halaman <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="title" disabled />
+      </div>
+      <div class="form-group my-4">
+          <labelFoto></label>
+          <input type="file" class="form-control" id="foto">
+      </div>
+      
+      <div class="form-group my-4">
+        <label>Content <span class="text-danger">*</span></label>
+        <textarea id="body" style="height: 30rem;"></textarea>
+      </div>
+      <button class="btn btn-info my-2" id="btnUpdate">Update</button>
+      </div>
+  </div>
+</div>
+<script type="module" src="/public/js/method/halamanUpdate.js"></script>

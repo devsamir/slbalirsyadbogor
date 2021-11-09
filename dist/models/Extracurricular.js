@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const class_validator_1 = require("class-validator");
 const typeorm_1 = require("typeorm");
-const Teacher_1 = __importDefault(require("./Teacher"));
+const User_1 = __importDefault(require("./User"));
 let Extracurricular = class Extracurricular {
 };
 __decorate([
@@ -22,11 +22,11 @@ __decorate([
     __metadata("design:type", Number)
 ], Extracurricular.prototype, "id", void 0);
 __decorate([
-    typeorm_1.ManyToOne(() => Teacher_1.default, (Teacher) => Teacher.id, { nullable: false }),
+    typeorm_1.ManyToOne(() => User_1.default, (User) => User.id, { nullable: false }),
     __metadata("design:type", Number)
-], Extracurricular.prototype, "teacher", void 0);
+], Extracurricular.prototype, "user", void 0);
 __decorate([
-    typeorm_1.Column({ nullable: true, default: "default-thumbnail.png" }),
+    typeorm_1.Column({ nullable: true, default: `public/uploads/default-extra.jpg` }),
     __metadata("design:type", String)
 ], Extracurricular.prototype, "thumbnail", void 0);
 __decorate([
@@ -35,18 +35,9 @@ __decorate([
     __metadata("design:type", String)
 ], Extracurricular.prototype, "nameExtracurricular", void 0);
 __decorate([
-    typeorm_1.Column("text"),
-    class_validator_1.IsDefined({ message: "Deskripsi Ektrakulikuler Tidak Boleh Kosong !" }),
+    typeorm_1.Column("text", { nullable: true, default: "" }),
     __metadata("design:type", String)
 ], Extracurricular.prototype, "description", void 0);
-__decorate([
-    typeorm_1.Column("time"),
-    __metadata("design:type", String)
-], Extracurricular.prototype, "extraOpen", void 0);
-__decorate([
-    typeorm_1.Column("time"),
-    __metadata("design:type", String)
-], Extracurricular.prototype, "extraClose", void 0);
 __decorate([
     typeorm_1.CreateDateColumn(),
     __metadata("design:type", Date)
@@ -55,10 +46,6 @@ __decorate([
     typeorm_1.UpdateDateColumn(),
     __metadata("design:type", Date)
 ], Extracurricular.prototype, "updatedAt", void 0);
-__decorate([
-    typeorm_1.Column("boolean", { default: true, select: false }),
-    __metadata("design:type", Boolean)
-], Extracurricular.prototype, "active", void 0);
 Extracurricular = __decorate([
     typeorm_1.Entity()
 ], Extracurricular);

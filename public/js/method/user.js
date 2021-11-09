@@ -18,7 +18,6 @@ import {
   const tambahPassword = document.querySelector("#tambah-password");
   const tambahRepassword = document.querySelector("#tambah-repassword");
   const tambahEmail = document.querySelector("#tambah-email");
-  const tambahAvatar = document.querySelector("#tambah-avatar");
   // EDIT
 
   const editId = document.querySelector("#edit-id");
@@ -27,7 +26,6 @@ import {
   const editPassword = document.querySelector("#edit-password");
   const editRepassword = document.querySelector("#edit-repassword");
   const editEmail = document.querySelector("#edit-email");
-  const editAvatar = document.querySelector("#edit-avatar");
 
   const fields = document.querySelectorAll(".form-control");
   const btnTambah = document.querySelector("#btnTambah");
@@ -39,21 +37,6 @@ import {
   <button class="btn btn-info" id="btnEdit"><i class="fa fa-pen"></i></button>
   <button class="btn btn-danger" id="btnDelete"><i class="fa fa-trash"></i></button>
   </td>`;
-  // Method Untuk Melakukan Request Membuat User Baru
-  const handleCreateUser = catchAsync(async () => {
-    isLoading(true);
-    await createUser(
-      tambahUsername,
-      tambahPassword,
-      tambahRepassword,
-      tambahEmail,
-      tambahAvatar
-    );
-    clearFields([...fields]);
-    $("#modalTambah").modal("hide");
-    toast("success", "Berhasil Menambah User Baru");
-    handleGetUser();
-  });
   // Method Untuk Mendapatkan Semua User
   const handleGetUser = catchAsync(async () => {
     isLoading(true);
@@ -61,12 +44,26 @@ import {
 
     const table = generateTable(
       data,
-      ["Username", "Email", "Avatar"],
-      ["username", "email", "avatar"],
+      ["Username", "Email"],
+      ["username", "email"],
       "id",
       action
     );
     datatable.innerHTML = table;
+  });
+  // Method Untuk Melakukan Request Membuat User Baru
+  const handleCreateUser = catchAsync(async () => {
+    isLoading(true);
+    await createUser(
+      tambahUsername,
+      tambahPassword,
+      tambahRepassword,
+      tambahEmail
+    );
+    clearFields(...fields);
+    $("#modalTambah").modal("hide");
+    toast("success", "Berhasil Menambah User Baru");
+    handleGetUser();
   });
   // Method Untuk Membuka Modal Lalu Mengisi Input
   const showEditModal = catchAsync(async (id) => {
@@ -87,10 +84,9 @@ import {
       editOldPassword,
       editPassword,
       editRepassword,
-      editEmail,
-      editAvatar
+      editEmail
     );
-    clearFields([...fields]);
+    clearFields(...fields);
     $("#modalEdit").modal("hide");
     toast("success", "Berhasil Update User Baru");
     handleGetUser();
@@ -105,7 +101,7 @@ import {
     const cek = await swal({
       icon: "warning",
       title: "Apakah Anda Yakin Hendak Menghapus Data User ?",
-      buttons: ["Belum", "Hapus"],
+      buttons: ["Batal", "Hapus"],
       dangerMode: true,
     });
     if (cek) {
@@ -134,5 +130,5 @@ import {
   // IIFE (Immediately Invoked Function Expression)
   handleGetUser();
 
-  document.querySelector("#user").classList.add("active");
+  document.querySelector("#user").classList.add("active-nav");
 })();

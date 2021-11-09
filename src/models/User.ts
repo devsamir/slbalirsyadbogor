@@ -25,8 +25,6 @@ export default class User {
   @IsDefined({ message: "Email Tidak Boleh Kosong" })
   @IsEmail({}, { message: "Format Email Tidak Valid" })
   email: string;
-  @Column({ nullable: true, default: "default-avatar.png" })
-  avatar: string;
   @CreateDateColumn()
   createdAt: Date;
   @UpdateDateColumn()

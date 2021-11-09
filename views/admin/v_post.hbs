@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header bg-transparent">
+    <h3 class="mb-0">Artikel SLB AL-Irsyad Bogor</h3>
+  </div>
+  <div class="card-body">
+    <a href="/admin/post/create"
+      class="btn btn-success"
+    >Tambah</a>
+    
+    <div
+      class="form-group mt-2 mb-2 d-flex flex-column justify-content-start align-items-end"
+    >
+      <label class="w-25">Cari</label>
+      <input type="text" class="form-control w-25" id="search" />
+      <small>Tekan Enter (by: Judul, Status, Penulis)</small>
+    </div>
+    <div class="table-responsive my-5">
+      <table class="table table-hover" id="datatable">
+
+      </table>
+    </div>
+    <div class="pagination">
+      <button class="btn mx-3 hidden" id="btnBefore"><i
+          class="fa fa-arrow-left"
+        ></i></button>
+      <span id="page"></span>
+      <button class="btn mx-3" id="btnNext"><i
+          class="fa fa-arrow-right"
+        ></i></button>
+    </div>
+  </div>
+</div>
+<script type="module" src="/public/js/method/post.js"></script>

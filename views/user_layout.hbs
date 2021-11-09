@@ -1,0 +1,142 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Halaman Utama Website SLB Al-Irsyad Bogor" />
+    <meta name="author" content="Devsam" />
+    <link rel="icon" href="/public/img/logo-alirsyad.ico" />
+    <title>SLB Al-Irsyad Bogor | Home</title>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="/public/ext/nucleo/css/nucleo.css" type="text/css" />
+    <link rel="stylesheet" href="/public/ext/@fortawesome/fontawesome-free/css/all.min.css" type="text/css" />
+    <!-- Page plugins -->
+    <!-- Argon CSS -->
+    <link rel="stylesheet" href="/public/ext/css/argon.css?v=1.2.0" type="text/css" />
+
+    <link rel="stylesheet" href="/public/css/home.css" type="text/css" />
+
+    <script src="/public/ext/jquery/dist/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/public/ext/toast/toast.css" />
+    <script src="/public/ext/toast/toast.js"></script>
+    <script src="/public/ext/axios.js"></script>
+</head>
+
+<body>
+    <header id="header" class="bg-white-papper fixed-top">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-md">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img class="image-logo" src="/public/img/logo-alirsyad.png" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item" id="home-nav">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown" id="profil-nav" style="cursor: pointer;">
+                            <a class="nav-link dropdown-toggle" id="profilDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Profil
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="profilDropdown">
+                                <a class="dropdown-item" href="/profil/sambutan-ketua-yayasan">Sambutan Ketua
+                                    Yayasan</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/profil/sambutan-kepala-sekolah">Sambutan Kepala
+                                    Sekolah</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/profil/visi">Visi & Misi</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/profil/sejarah">Sejarah Sekolah</a>
+                            </div>
+                        </li>
+                        <li class="nav-item" id="sarana-nav">
+                            <a class="nav-link" href="/sarana">Sarana & Prasana</a>
+                        </li>
+                        <li class="nav-item dropdown" id="kepegawaian-nav" style="cursor: pointer;">
+                            <a class="nav-link dropdown-toggle" id="kepegawaianDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Kepegawaian
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="kepegawaianDropdown">
+                                <a class="dropdown-item" href="/kepegawaian/struktur-organisasi">Struktur Organisasi
+                                    Sekolah</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/kepegawaian/struktur-komite">Struktur Komite
+                                    Sekolah</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/kepegawaian/direktori-guru">Direktori Guru & Staff</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown" id="kesiswaan-nav" style="cursor: pointer;">
+                            <a class="nav-link dropdown-toggle" id="kesiswaanDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Kesiswaan
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="kesiswaanDropdown">
+                                <a class="dropdown-item" href="/kesiswaan/direktori-siswa">Direktori Siswa</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/kesiswaan/prestasi-siswa">Prestasi Siswa</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/kesiswaan/ekstrakulikuler">Ekstrakulikuler</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/kesiswaan/kegiatan">Kegiatan Luar Sekolah</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/kesiswaan/pembelajaran">Pembelajaran Visual & Audio</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown" id="informasi-nav" style="cursor: pointer;">
+                            <a class="nav-link dropdown-toggle" id="informasiDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Informasi
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="informasiDropdown">
+                                <a class="dropdown-item" href="/informasi/sekolah">Info Sekolah</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/informasi/agenda">Agenda</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/informasi/berita">Berita</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/informasi/galeri">Galeri Foto dan Video</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/informasi/saran">Saran & Kritik</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main style="min-height: 100vh;" class="d-flex flex-column">
+        {{{body}}}
+        <footer id="footer" class="d-flex justify-content-center align-items-center flex-column p-4 bg-success mt-auto">
+            <h3 class="text-white font-weight-700">SLB Al-Irsyad Al-Islamiyyah Bogor</h4>
+                <span class="text-white">Jl. Sedane No. 37 Kel. Empang Kec. Kota Bogor Selatan </span>
+                <span class="text-white">Email : slbalirsyadbogor@gmail.com</span>
+                <small class="mt-4 text-white">This Website Made By <i class="fa fa-heart text-danger"></i> By <a
+                        href="https://github.com/devsamir" target="_blank">DevSam</a></small>
+        </footer>
+    </main>
+    <div class="loading-container none">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script src="/public/ext/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/ext/js-cookie/js.cookie.js"></script>
+    <!-- Argon JS -->
+    <script src="/public/ext/js/argon.js?v=1.2.0"></script>
+</body>
+
+</html>

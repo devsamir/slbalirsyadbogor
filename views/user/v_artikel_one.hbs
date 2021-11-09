@@ -1,0 +1,54 @@
+<style>
+    .post-text{
+        word-break: break-all;
+        color: #000;
+    }
+    .post-text::first-letter{
+        font-family: "Kaushan Script", cursive;
+        color: #2dce89;
+        float: left;
+        font-size: 6rem;
+        line-height: 0.65;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+    p{
+        font-size: 14pt;
+    }
+</style>
+<section id="artikel" class="py-4" style="margin-top: 100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mx-auto col-sm-6 text-center">
+                <h1 class="text-capitalize font-kaushan banner">{{post.jenis}}</h1>
+            </div>
+        </div>
+        <section class="py-4">
+            <div class="container">
+                <div class="jumbotron p-3 rounded p-md-5 main-post d-flex justify-content-end flex-column" style="height: 60vh;"
+                    id="main-post-image">
+                    <h1 class="text-white w-75" id="main-post-title">{{post.title}}</h1>
+                        
+                    <span class="badge badge-pill badge-success align-self-start my-2" style="font-size: 0.8rem;" id="main-post-jenis">{{post.jenis}}</span>
+                    <small><i class="fa fa-clock text-white"></i><span class="mx-2 text-white"
+                            id="main-post-date">{{post.tanggal}}</span></small>
+                </div>
+                <div class="row">
+                    <div class="col-10 mx-auto py-4 post-text">
+                        {{{post.body}}}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-4">
+            <h1 class="text-capitalize font-kaushan">Berita Dan Artikel Lainnya</h1>
+            <div id="other-post-container" class="d-flex flex-column">
+
+            </div>
+        </section>
+    </div>
+</section>
+<script type="module" src="/public/js/user/artikelOne.js"></script>
+  <script>
+  document.querySelector("#informasi-nav").classList.add("active-link")
+  </script>

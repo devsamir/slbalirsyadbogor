@@ -22,19 +22,25 @@ __decorate([
     class_validator_1.IsDefined({ message: "Nama Harus Diisi" }),
     class_validator_1.MinLength(1, { message: "Nama Harus Disii" }),
     __metadata("design:type", String)
-], Suggestion.prototype, "fullName", void 0);
+], Suggestion.prototype, "name", void 0);
 __decorate([
     typeorm_1.Column(),
-    class_validator_1.IsDefined({ message: "Nama Harus Diisi" }),
-    class_validator_1.IsEmail({}, { message: "Format Email Salah" }),
     __metadata("design:type", String)
 ], Suggestion.prototype, "email", void 0);
 __decorate([
     typeorm_1.Column(),
+    __metadata("design:type", String)
+], Suggestion.prototype, "phone", void 0);
+__decorate([
+    typeorm_1.Column("text"),
     class_validator_1.IsDefined({ message: "Saran & Kritik Harus Diisi" }),
     class_validator_1.MinLength(1, { message: "Saran & Kritik Harus Disii" }),
     __metadata("design:type", String)
-], Suggestion.prototype, "suggestion", void 0);
+], Suggestion.prototype, "saran", void 0);
+__decorate([
+    typeorm_1.Column("boolean", { default: false }),
+    __metadata("design:type", Boolean)
+], Suggestion.prototype, "dibaca", void 0);
 __decorate([
     typeorm_1.CreateDateColumn(),
     __metadata("design:type", Date)

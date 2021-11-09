@@ -15,9 +15,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 4000;
+  position: fixed;
 }
 .none {
   display: none;
+}
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.hidden {
+  visibility: hidden;
+}
+.active-nav {
+  background-color: #2dce8933;
+}
+.active-nav span {
+  font-weight: 700;
 }
 @keyframes spin {
   from {

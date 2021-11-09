@@ -7,8 +7,13 @@ const generateTable = (data, header, body, id, action) => {
   data.forEach((item) => {
     row += `<tr data-id='${item[id]}'>`;
     body.forEach((col) => {
-      if (col === "avatar") {
-        row += `<td><img src="/${item[col]}" alt="avatar" style="height:120px" /></td>`;
+      if (
+        col === "avatar" ||
+        col === "photo" ||
+        col === "thumbnail" ||
+        col === "foto"
+      ) {
+        row += `<td><img src="/${item[col]}" alt="foto" style="height:120px" /></td>`;
       } else {
         row += `<td>${item[col]}</td>`;
       }
@@ -19,23 +24,28 @@ const generateTable = (data, header, body, id, action) => {
   row += `</body></table>`;
   return row;
 };
-const generateTableSpecial = (data, header, body, id) => {
-  let row = `<table class="table table-bordered table-hover" id="datatable">
-                      <thead>
-                          <tr>`;
+const generateTableSuggest = (data, header, body, id) => {
+  let row = `
+  <thead>
+      <tr>`;
   header.forEach((item) => (row += `<th>${item}</th>`));
   row += `<th>Action</th></tr></thead><tbody>`;
   data.forEach((item) => {
     row += `<tr data-id='${item[id]}'>`;
-    body.forEach((col) => (row += `<td>${item[col]}</td>`));
-    if (item.terlayani === "belum") {
-      row += `<td style="display:flex;justify-content:center"><button class="btn btn-success" id="btn-status"><i class="fa fa-check"></i></button></td>`;
-    } else if (item.terlayani === "sudah") {
-      row += `<td style="display:flex;justify-content:center"><button class="btn btn-link text-danger" id="btn-status">belum</button></td>`;
+    body.forEach((col) => {
+      row += `<td>${item[col]}</td>`;
+    });
+    if (item.dibaca) {
+      row += `<td><span class="text-success">Sudah Dibaca</span></td>`;
+    } else {
+      row += `<td>
+      <button class="btn btn-success" id="btnCheck"><i class="fa fa-check"></i></button>
+      </td>`;
     }
+
     row += `</tr>`;
   });
-  row += `</body></table>`;
+  row += `</body>`;
   return row;
 };
 const toast = (variant, message) => {
@@ -112,6 +122,6 @@ export {
   getFieldsValue,
   catchAsync,
   getDayNow,
-  generateTableSpecial,
+  generateTableSuggest,
   toast,
 };

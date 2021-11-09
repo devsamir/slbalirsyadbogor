@@ -1,0 +1,145 @@
+<div class="card">
+  <div class="card-header bg-transparent">
+    <h3 class="mb-0">Ekstrakulikuler SLB AL-Irsyad Bogor</h3>
+  </div>
+  <div class="card-body">
+    <button
+      data-toggle="modal"
+      data-target="#modalTambah"
+      class="btn btn-success"
+    >Tambah</button>
+    
+    <div
+      class="form-group mt-2 mb-2 d-flex flex-column justify-content-start align-items-end"
+    >
+      <label class="w-25">Cari</label>
+      <input type="text" class="form-control w-25" id="search" />
+      <small>Tekan Enter (by: Judul, Status, Penulis)</small>
+    </div>
+    <div class="table-responsive my-5">
+      <table class="table table-hover" id="datatable">
+
+      </table>
+    </div>
+    <div class="pagination">
+      <button class="btn mx-3 hidden" id="btnBefore"><i
+          class="fa fa-arrow-left"
+        ></i></button>
+      <span id="page"></span>
+      <button class="btn mx-3" id="btnNext"><i
+          class="fa fa-arrow-right"
+        ></i></button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal" id="modalTambah" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tambah Ekstrakulikuler</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Nama Ekstrakulikuler <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="tambah-nama" />
+          </div>
+          <div class="form-group">
+            <label>Deskripsi Ekstrakulikuler</label>
+            <textarea class="form-control" cols="3" id="tambah-description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Foto Ekstrakulikuler</label>
+            <input
+              type="file"
+              class="form-control"
+              id="tambah-foto"
+              accept=".jpg, .jpeg, .png"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-success"
+            id="btnTambah"
+          >Simpan</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >Close</button>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modalEdit" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Ekstrakulikuler</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+        <div class="modal-body">
+            <input type="hidden" id="edit-id">
+          <div class="form-group">
+            <label>Nama Ekstrakulikuler <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="edit-nama" />
+          </div>
+          <div class="form-group">
+            <label>Deskripsi Ekstrakulikuler</label>
+            <textarea class="form-control" cols="3" id="edit-description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Foto Ekstrakulikuler</label>
+            <input
+              type="file"
+              class="form-control"
+              id="edit-foto"
+              accept=".jpg, .jpeg, .png"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-info"
+            id="btnUpdate"
+          >Update</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >Close</button>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="module" src="/public/js/method/extra.js"></script>
+
+
+ 

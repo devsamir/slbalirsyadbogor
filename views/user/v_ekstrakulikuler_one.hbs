@@ -1,0 +1,38 @@
+<style>
+    .extra-text::first-letter{
+        font-family: "Kaushan Script", cursive;
+        color: #2dce89;
+        float: left;
+        font-size: 6rem;
+        line-height: 0.65;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+    p{
+        font-size: 14pt;
+    }
+</style>
+<section id="artikel" class="py-4" style="margin-top: 100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mx-auto col-sm-6 text-center">
+                <h1 class="text-capitalize font-kaushan banner">Ekstrakulikuler</h1>
+            </div>
+        </div>
+        <section class="py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-10 mx-auto py-4 d-flex justify-content-center">
+                        <img src="/{{extra.thumbnail}}" class="img-fluid" />
+                    </div>
+                    <div class="col-10 mx-auto py-4">
+                        <p class="extra-text">{{extra.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+  <script>
+  document.querySelector("#kesiswaan-nav").classList.add("active-link")
+  </script>

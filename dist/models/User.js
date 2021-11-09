@@ -35,10 +35,6 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
-    typeorm_1.Column({ nullable: true, default: "default-avatar.png" }),
-    __metadata("design:type", String)
-], User.prototype, "avatar", void 0);
-__decorate([
     typeorm_1.CreateDateColumn(),
     __metadata("design:type", Date)
 ], User.prototype, "createdAt", void 0);

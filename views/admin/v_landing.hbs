@@ -1,0 +1,109 @@
+<div class="card">
+  <div class="card-header bg-transparent">
+    <h3 class="mb-0">Profil SLB AL-Irsyad Bogor</h3>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive my-5">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Keterangan 1</th>
+            <th>Keterangan 2</th>
+            <th>Keterangan 3</th>
+          </tr>
+        </thead>
+        <tbody id="datatable">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modelEditImage1" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Profil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>ID</label>
+          <input type="text" class="form-control" id="editIdImage1" disabled />
+        </div>
+        <div class="form-group">
+          <label>Foto</label>
+          <input type="file" class="form-control" id="editFotoImage1" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" id="btnUpdateImage1">Update</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modelEdit1" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Profil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>ID</label>
+          <input type="text" class="form-control" id="editId1" disabled />
+        </div>
+        <div class="form-group">
+          <label>Keterangan</label>
+          <textarea id="editKeterangan1" rows="10" class="form-control"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" id="btnUpdate1">Update</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modelEdit2" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Profil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>ID</label>
+          <input type="text" class="form-control" id="editId2" disabled />
+        </div>
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="editTitle2" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>Keterangan</label>
+          <textarea id="editKeterangan2" rows="10" class="form-control"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" id="btnUpdate2">Update</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="/public/js/method/landing.js"></script>

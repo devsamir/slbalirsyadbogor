@@ -1,4 +1,4 @@
-import { IsDefined, IsEmail, MinLength } from "class-validator";
+import { IsDefined, MinLength } from "class-validator";
 import {
   Column,
   Entity,
@@ -14,15 +14,17 @@ export default class Suggestion {
   @Column()
   @IsDefined({ message: "Nama Harus Diisi" })
   @MinLength(1, { message: "Nama Harus Disii" })
-  fullName: string;
+  name: string;
   @Column()
-  @IsDefined({ message: "Nama Harus Diisi" })
-  @IsEmail({}, { message: "Format Email Salah" })
   email: string;
   @Column()
+  phone: string;
+  @Column("text")
   @IsDefined({ message: "Saran & Kritik Harus Diisi" })
   @MinLength(1, { message: "Saran & Kritik Harus Disii" })
-  suggestion: string;
+  saran: string;
+  @Column("boolean", { default: false })
+  dibaca: boolean;
   @CreateDateColumn()
   createdAt: Date;
   @UpdateDateColumn()

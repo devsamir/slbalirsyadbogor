@@ -32,7 +32,7 @@ __decorate([
     __metadata("design:type", String)
 ], Post.prototype, "title", void 0);
 __decorate([
-    typeorm_1.Column({ nullable: true, default: "default-thumbnail.png" }),
+    typeorm_1.Column({ nullable: true, default: "public/uploads/default-post.jpg" }),
     __metadata("design:type", String)
 ], Post.prototype, "thumbnail", void 0);
 __decorate([
@@ -45,6 +45,18 @@ __decorate([
     typeorm_1.Column({ default: 0 }),
     __metadata("design:type", Number)
 ], Post.prototype, "viewer", void 0);
+__decorate([
+    typeorm_1.Column("enum", { enum: ["draft", "publish"] }),
+    class_validator_1.IsDefined({ message: "Status Harus Diisi" }),
+    class_validator_1.MinLength(1, { message: "Status Harus Diisi" }),
+    __metadata("design:type", String)
+], Post.prototype, "status", void 0);
+__decorate([
+    typeorm_1.Column("enum", { enum: ["Artikel", "Berita"] }),
+    class_validator_1.IsDefined({ message: "Status Harus Diisi" }),
+    class_validator_1.MinLength(1, { message: "Status Harus Diisi" }),
+    __metadata("design:type", String)
+], Post.prototype, "jenis", void 0);
 __decorate([
     typeorm_1.CreateDateColumn(),
     __metadata("design:type", Date)
